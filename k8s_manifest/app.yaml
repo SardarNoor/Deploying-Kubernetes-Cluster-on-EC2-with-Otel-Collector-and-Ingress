@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
         - name: app
-          image: 504649076991.dkr.ecr.us-west-1.amazonaws.com/node-otel-ui:1.0
+          image: sardarnoor1/node-otel-ui:1.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 3000
           env:
