@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node-otel-ui
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: node-otel-ui
+  template:
+    metadata:
+      labels:
+        app: node-otel-ui
+    spec:
+      containers:
+        - name: app
+          image: 504649076991.dkr.ecr.us-west-1.amazonaws.com/node-otel-ui:1.0
+          ports:
+            - containerPort: 3000
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: "node-otel-ui"
+            - name: OTEL_EXPORTER_OTLP_TRACES_ENDPOINT
+              value: "http://otel-collector.default.svc.cluster.local:4318/v1/traces"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node-otel-ui
+  namespace: default
+spec:
+  selector:
+    app: node-otel-ui
+  ports:
+    - port: 80
+      targetPort: 3000

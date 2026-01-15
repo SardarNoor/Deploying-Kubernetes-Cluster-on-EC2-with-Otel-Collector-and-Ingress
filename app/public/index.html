@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>K8s Node UI + OTel</title>
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Kubernetes Node.js UI</h1>
+      <p class="sub">Ingress + OpenTelemetry Collector</p>
+    </header>
+
+    <section class="card">
+      <div class="row">
+        <button id="btnHealth">Health</button>
+        <button id="btnRandom">Random</button>
+        <button id="btnSlow">Slow request</button>
+      </div>
+
+      <pre id="out" class="out">Click a button…</pre>
+
+      <div class="hint">
+        Tip: Click “Slow request” a few times, then check OTel Collector logs for spans.
+      </div>
+    </section>
+
+    <footer>
+      <span class="badge">/api/health</span>
+      <span class="badge">/api/random</span>
+      <span class="badge">/api/slow</span>
+    </footer>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
