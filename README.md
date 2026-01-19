@@ -10,7 +10,8 @@ This project demonstrates **real-world Kubernetes infrastructure skills** by avo
 
 ## Architecture Diagram
 
-![Kubernetes Architecture](Task16\(1\).PNG)
+![Kubernetes Architecture](Task16%20(1).PNG)
+
 
 ---
 
